@@ -14,4 +14,4 @@ More to come as development progresses, though the plan is to be able to take an
 Credits
 =======
 
-The interface is built on [Twitter Bootstrap](http://getbootstrap.com/) v2.3.2 and uses [normalize.css](http://necolas.github.com/normalize.css/3.0.1/normalize.css) v3.0.1, both used under an MIT Public License.
+The interface is built on [Twitter Bootstrap](http://getbootstrap.com/) v2.3.2 and uses [normalize.css](http://necolas.github.com/normalize.css/3.0.1/normalize.css) v3.0.1 and [Font Awesome](http://fontawesome.io), all used under an MIT Public License.
