@@ -5,6 +5,7 @@
 	<asp:ContentPlaceHolder ID="head" runat="server">
 		<title></title>
 	</asp:ContentPlaceHolder>
+	<link type="text/css" rel="stylesheet" href="/Content/css/font-awesome.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/bootstrap.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/normalize.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/style.css" />
@@ -15,13 +16,51 @@
 			<div class="container">
 				<div class="row-fluid">
 					<div class="span12" id="topheader">
-						<h1></h1>
+						<h1>
+						    <i>&iexcl;Hollow Holla!</i>
+						</h1>
 					</div>
 				</div>
 				<div class="row-fluid">
 					<div class="span2" id="sidebar">
-					<ul>
-						<li></li>
+					<ul class="sidebar">
+						<li>
+						    <a href="">
+							    <span class="fa-stack fa-lg">
+							        <i class="fa fa-square-o fa-stack-2x"></i>
+							        <i class="fa fa-fw fa-bell-o fa-stack-1x"></i>
+							        <sup class="text-danger fa-stack-1x">1</sup>
+							    </span>
+								Notifications
+							</a>
+						</li>
+						<li>
+						    <a href="">
+							    <span class="fa-stack fa-lg">
+							        <i class="fa fa-square-o fa-stack-2x"></i>
+							        <i class="fa fa-fw fa-comments-o fa-stack-1x"></i>
+							    </span>
+								Messages
+							</a>
+						</li>
+						<li>
+						    <a href="">
+							    <span class="fa-stack fa-lg">
+							        <i class="fa fa-square-o fa-stack-2x"></i>
+							        <i class="fa fa-fw fa-send-o fa-stack-1x"></i>
+							    </span>
+								Send
+							</a>
+						</li>
+						<li>
+						    <a href="">
+							    <span class="fa-stack fa-lg">
+							        <i class="fa fa-fw fa-users fa-stack-1x"></i>
+							        <i class="fa fa-fw fa-ban fa-stack-2x text-danger"></i>
+							    </span>
+								Hide from Groups
+							</a>
+						<li>
 					</ul>
 					</div>
 					<div class="span10">

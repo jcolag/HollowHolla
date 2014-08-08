@@ -1,4 +1,14 @@
-﻿#topheader
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Cherry+Cream+Soda);
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Cherry Cream Soda', cursive;
+}
+#topheader
 {
     background-color: #0094ff;
     color: white;
@@ -12,4 +22,18 @@
 {
     background-color: #b200ff;
     text-align: center;
+}
+.sidebar
+{
+    padding: 0;
+    margin: 0;
+}
+.sidebar li
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+    list-style-type: none;
+}
+.text-danger
+{
+    color: red;
 }
