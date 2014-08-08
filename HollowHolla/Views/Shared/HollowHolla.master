@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<asp:ContentPlaceHolder ID="head" runat="server">
+		<title></title>
+	</asp:ContentPlaceHolder>
+	<link type="text/css" rel="stylesheet" href="/Content/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="/Content/css/normalize.css" />
+	<link type="text/css" rel="stylesheet" href="/Content/css/style.css" />
+</head>
+<body>
+	<form id="form1" runat="server">
+		<div>
+			<div class="container">
+				<div class="row-fluid">
+					<div class="span12" id="topheader">
+						<h1></h1>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2" id="sidebar">
+					<ul>
+						<li></li>
+					</ul>
+					</div>
+					<div class="span10">
+						<asp:ContentPlaceHolder ID="MainContent" runat="server">
+						</asp:ContentPlaceHolder>
+					</div>
+				</div>
+                <div class="row-fluid">
+					<div class="span12" id="footer">&copy; 2014 The Company, Inc.</div>
+				</div> 
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src='/Content/js/jquery-2.1.1.js") %>'></script>
+	<script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
+</body>
+</html>

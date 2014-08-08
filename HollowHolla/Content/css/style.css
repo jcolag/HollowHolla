@@ -1,0 +1,15 @@
+﻿#topheader
+{
+    background-color: #0094ff;
+    color: white;
+}
+#sidebar
+{
+    background-color: #999999;
+    min-height: 600px;
+}
+#footer
+{
+    background-color: #b200ff;
+    text-align: center;
+}

@@ -1,12 +1,7 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-	<title></title>
-</head>
-<body>
-	<div>
-		<%= Html.Encode(ViewData["Message"]) %>
-	</div>
-</body>
+﻿<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage" MasterPageFile="~/Views/Shared/HollowHolla.master" %>
+<asp:Content ContentPlaceHolderID="head" ID="headContent" runat="server">
+	<title>Home Feed - Hollow Holla!</title>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="MainContent" ID="MainContentContent" runat="server">
 
+</asp:Content>
