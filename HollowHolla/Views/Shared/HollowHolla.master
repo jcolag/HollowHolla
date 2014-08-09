@@ -2,13 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<asp:ContentPlaceHolder ID="head" runat="server">
-		<title></title>
-	</asp:ContentPlaceHolder>
+	<script type="text/javascript" src="/Content/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="/Content/css/font-awesome.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/bootstrap.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/normalize.css" />
 	<link type="text/css" rel="stylesheet" href="/Content/css/style.css" />
+	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
 	<form id="form1" runat="server">
@@ -74,7 +74,5 @@
 			</div>
 		</div>
 	</form>
-	<script type="text/javascript" src='/Content/js/jquery-2.1.1.js") %>'></script>
-	<script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
 </body>
 </html>
