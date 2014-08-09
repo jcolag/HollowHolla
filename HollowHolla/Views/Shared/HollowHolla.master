@@ -29,7 +29,7 @@
 							    <span class="fa-stack fa-lg">
 							        <i class="fa fa-square-o fa-stack-2x"></i>
 							        <i class="fa fa-fw fa-bell-o fa-stack-1x"></i>
-							        <sup class="text-danger fa-stack-1x">1</sup>
+							        <sup class="text-danger fa-stack-1x"><b>&nbsp;1</b></sup>
 							    </span>
 								Notifications
 							</a>
