@@ -9,9 +9,14 @@ So, I'm making one.
 
 This application should be a viable stand-in for a user activity feed that could easily be any similar website.
 
-More to come as development progresses, though the plan is to be able to take and publish a script.
+More to come as development progresses, though the plan is to be able to take and publish a script as an extended exchange between associates.
 
 Credits
 =======
 
-The interface is built on [Twitter Bootstrap](http://getbootstrap.com/) v2.3.2 and uses [normalize.css](http://necolas.github.com/normalize.css/3.0.1/normalize.css) v3.0.1 and [Font Awesome](http://fontawesome.io), all used under an MIT Public License.
+The interface is built on [Twitter Bootstrap](http://getbootstrap.com/) v2.3.2 and uses [normalize.css](http://necolas.github.com/normalize.css/3.0.1/normalize.css) v3.0.1, both used under an MIT Public License.  It also uses Dave Gandy's [Font Awesome](http://fontawesome.io) under the terms of the [SIL OFL 1.1](http://scripts.sil.org/OFL) and CSS code under an MIT Public License.
+
+Errata
+------
+
+In a previous release, I mistakenly believed that the MIT license applied to the entire Font Awesome package.
