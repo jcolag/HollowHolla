@@ -3,10 +3,15 @@
 	<title>Home Feed - Hollow Holla!</title>
 	<script type="text/javascript">
 	    function UpdateMessages() {
-	        var post = "<li class='hh-post'>";
-	        post += "Next item"
-	        post += "</li>";
-			$('#stream').append(post);
+	        var url = "/Home/Next";
+	        var inner = "";
+	        $.get(url, function(data) {
+	            if ((data === "") || (data === null)) {
+	                return;
+	            }
+		        var post = "<li class='hh-post'>" + data + "</li>";
+				$('#stream').append(post);
+	        });
 		}
 		$(document).ready(function() {
 			setInterval(function() {

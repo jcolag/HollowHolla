@@ -14,6 +14,24 @@ namespace HollowHolla.Controllers
                         ViewData["Message"] = "Welcome to ASP.NET MVC on Mono!";
                         return View();
                 }
+
+                [AcceptVerbs(HttpVerbs.Get)]
+                public ActionResult Next()
+                {
+                        HttpSessionStateBase session = this.Session;
+                        int counter = 1;
+                        if (session["Counter"] is int)
+                        {
+                                counter = (int)session["Counter"];
+                                session["Counter"] = counter + 1;
+                        }
+                        else
+                        {
+                                session.Add("Counter", counter + 1);
+                        }
+
+                        this.Response.Write("Item #" + counter.ToString());
+                        return null;
+                }
         }
 }
-
