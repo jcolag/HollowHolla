@@ -9,7 +9,7 @@
 	            if ((data === "") || (data === null)) {
 	                return;
 	            }
-		        var post = "<li class='hh-post'>" + data + "</li>";
+		        var post = "<li class='hh-post'>" + data.replace(/#/g, "<br>") + "</li>";
 				$('#stream').append(post);
 	        });
 		}
