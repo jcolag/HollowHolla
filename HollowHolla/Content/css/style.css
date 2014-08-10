@@ -9,6 +9,16 @@ h1, h2, h3, h4, h5, h6
     font-family: 'Cherry Cream Soda', cursive;
     margin: 1em;
 }
+.hh-post
+{
+    font-family: 'Open Sans', sans-serif;
+    list-style-type: none;
+    width: 20em;
+    border: 3px black solid;
+    float: left;
+    margin: 1em;
+    padding: 0.5em;
+}
 #topheader
 {
     background-color: #0094ff;
