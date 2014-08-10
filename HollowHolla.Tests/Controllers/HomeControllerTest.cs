@@ -1,25 +1,35 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using HollowHolla;
-using HollowHolla.Controllers;
-
+﻿// <copyright file="HomeControllerTest.cs" company="John Colagioia">
+//     John.Colagioia.net. Licensed under the GPLv3
+// </copyright>
+// <author>John Colagioia</author>
 namespace HollowHolla.Tests
 {
-        [TestFixture()]
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Web.Mvc;
+        using HollowHolla;
+        using HollowHolla.Controllers;
+        using NUnit.Framework;
+
+        /// <summary>
+        /// Home controller tests.
+        /// </summary>
+        [TestFixture]
         public class HomeControllerTest
         {
-                [Test()]
+                /// <summary>
+                /// Index for this instance.
+                /// </summary>
+                [Test]
                 public void Index()
                 {
                         // Arrange
-                        HomeController controller = new HomeController();
+                        var controller = new HomeController();
 
                         // Act
-                        ViewResult result = controller.Index() as ViewResult;
+                        var result = controller.Index() as ViewResult;
 
                         // Assert
                         Assert.AreEqual("Welcome to ASP.NET MVC on Mono!", result.ViewData["Message"]);
