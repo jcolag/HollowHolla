@@ -13,11 +13,12 @@ h1, h2, h3, h4, h5, h6
 {
     font-family: 'Open Sans', sans-serif;
     list-style-type: none;
-    width: 20em;
+    width: 21em;
     border: 3px black solid;
     float: left;
     margin: 1em;
     padding: 0.5em;
+	border-radius: 2em;
 }
 #topheader
 {
