@@ -40,11 +40,11 @@ namespace HollowHolla.Controllers
                         if (session["Counter"] is int)
                         {
                                 counter = (int)session["Counter"];
-                                session["Counter"] = counter + 1;
                         }
                         else
                         {
-                                session.Add("Counter", counter + 1);
+                                session.Add("Counter", counter);
+                                session.Add("RealStart", DateTime.Now);
                         }
 
                         var lines = (List<string>)session["Lines"];
@@ -54,15 +54,48 @@ namespace HollowHolla.Controllers
                         }
                         else
                         {
-                                this.Response.Write(lines[counter]);
+                                char[] delims = { '#' };
+                                string line = lines[counter];
+                                string[] elements = line.Split(delims, StringSplitOptions.None);
+                                string timecode = elements.Length > 3 ? elements[3] : null;
+                                if (HomeController.IsReadyToPost(session, timecode))
+                                {
+                                        this.Response.Write(line);
+                                        session["Counter"] = counter + 1;
+                                }
                         }
                         return null;
                 }
 
                 /// <summary>
+                /// Determines whether this instance is ready to post the specified message now.
+                /// </summary>
+                /// <returns><c>true</c> if this instance is ready to post the specified session when; otherwise, <c>false</c>.</returns>
+                /// <param name="session">Session.</param>
+                /// <param name="when">When.</param>
+                private static bool IsReadyToPost(HttpSessionStateBase session, string when)
+                {
+                        if (session == null || string.IsNullOrWhiteSpace(when))
+                        {
+                                return true;
+                        }
+
+                        if (session["Start"] == null)
+                        {
+                                session.Add("Start", HomeController.FindTime(when));
+                                Console.WriteLine("Set -Start- to " + session["Start"].ToString());
+                        }
+
+                        var start = (DateTime)session["Start"];
+                        var wait = HomeController.Elapsed(start, when);
+                        var real = DateTime.Now - (DateTime)session["RealStart"];
+                        return real >= wait;
+                }
+
+                /// <summary>
                 /// Gets the play.
                 /// </summary>
-                /// <returns>The play.</returns>
+                /// <returns>The list of play's lines.</returns>
                 /// <param name="filename">Filename containing the formatted play.</param>
                 private static List<string> GetPlay(string filename)
                 {
@@ -79,6 +112,46 @@ namespace HollowHolla.Controllers
                         string[] lines = text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
                         var result = new List<string>(lines);
                         return result;
+                }
+
+                /// <summary>
+                /// Finds the time.
+                /// </summary>
+                /// <returns>The time.</returns>
+                /// <param name="when">The current time code.</param>
+                private static DateTime FindTime(string when)
+                {
+                        DateTime result = default(DateTime);
+
+                        if (string.IsNullOrWhiteSpace(when))
+                        {
+                                return result;
+                        }
+
+                        try
+                        {
+                                result = DateTime.ParseExact(
+                                        when,
+                                        "MMddHHmm",
+                                        System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        catch (FormatException e)
+                        {
+                                Console.WriteLine(e.Message);
+                        }
+
+                        return result;
+                }
+
+                /// <summary>
+                /// Time elapsed from the original time and now.
+                /// </summary>
+                /// <param name="first">First time.</param>
+                /// <param name="when">Current time code.</param>
+                private static TimeSpan Elapsed(DateTime first, string when)
+                {
+                        DateTime now = HomeController.FindTime(when);
+                        return now - first;
                 }
         }
 }
