@@ -22,10 +22,11 @@ function FormatTime(code) {
 	var day = code.substring(2, 4);
 	var hour = code.substring(4, 6);
 	var minute = code.substring(6, 8);
-	return "" + year + "/" + month + "/" + day + " " + hour + ":" + minute;
+	var second = new Date().getTime() / 1000 % 60;
+	return "" + year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
 }
 $(document).ready(function() {
 	setInterval(function() {
 		UpdateMessages();
-	}, 5000);
+	}, 500);
 });
