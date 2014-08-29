@@ -22,9 +22,43 @@ namespace HollowHolla.Controllers
                 /// <returns>The HTTP Action Result.</returns>
                 public ActionResult Index()
                 {
-                        List<string> lines = HomeController.GetPlay(null);
-                        Session.Add("Lines", lines);
-                        this.ViewData["Message"] = "Welcome to ASP.NET MVC on Mono!";
+                        HttpSessionStateBase session = this.Session;
+                        int counter = 0;
+                        string storySoFar = string.Empty;
+                        List<string> lines;
+                        char[] delims = { '#' };
+
+                        if (session["Counter"] is int)
+                        {
+                                counter = (int)session["Counter"];
+                        }
+
+                        lines = HomeController.GetPlay(null);
+                        session.Add("Lines", lines);
+
+                        for (int idx = 0; idx < counter; idx++)
+                        {
+                                string line = lines[idx];
+                                string post;
+                                string[] elements = line.Split(delims, StringSplitOptions.None);
+
+                                post = "<li class='hh-post'><h2>" + elements[0] + "</h2>";
+                                if (elements.Length > 3)
+                                {
+                                        var when = DateTime.ParseExact(
+                                                elements[3],
+                                                "MMddHHmm",
+                                                System.Globalization.CultureInfo.InvariantCulture);
+                                        post += "<i><small>" + when.ToShortDateString()
+                                                + " " + when.ToLongTimeString() + "</small></i><br>";
+                                }
+
+                                post += "<i>" + elements[1].Replace("*", string.Empty) + "</i><br>"
+                                        + elements[2] + "</li>";
+                                storySoFar += post;
+                        }
+
+                        this.ViewData["Message"] = storySoFar;
                         return this.View();
                 }
 
@@ -64,6 +98,7 @@ namespace HollowHolla.Controllers
                                         session["Counter"] = counter + 1;
                                 }
                         }
+
                         return null;
                 }
 
@@ -71,8 +106,8 @@ namespace HollowHolla.Controllers
                 /// Determines whether this instance is ready to post the specified message now.
                 /// </summary>
                 /// <returns><c>true</c> if this instance is ready to post the specified session when; otherwise, <c>false</c>.</returns>
-                /// <param name="session">Session.</param>
-                /// <param name="when">When.</param>
+                /// <param name="session">User session.</param>
+                /// <param name="when">Time code of post.</param>
                 private static bool IsReadyToPost(HttpSessionStateBase session, string when)
                 {
                         if (session == null || string.IsNullOrWhiteSpace(when))
@@ -148,6 +183,7 @@ namespace HollowHolla.Controllers
                 /// </summary>
                 /// <param name="first">First time.</param>
                 /// <param name="when">Current time code.</param>
+                /// <returns>Duration between time and time code.</returns>
                 private static TimeSpan Elapsed(DateTime first, string when)
                 {
                         DateTime now = HomeController.FindTime(when);

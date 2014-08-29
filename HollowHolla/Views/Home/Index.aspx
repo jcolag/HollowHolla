@@ -4,5 +4,6 @@
 	<script type="text/javascript" src="/Content/js/index.js"></script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContentContent" runat="server">
+	<ul><%= ViewData["Message"] %></ul>
 	<ul id="stream"></ul>
 </asp:Content>
