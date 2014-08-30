@@ -15,6 +15,7 @@
 		post += items[2] + "</li>";
 		$('#stream').append(post);
 	});
+	$('html, body').scrollTop($(document).height());
 }
 function FormatTime(code) {
 	var year = new Date().getFullYear();
@@ -28,5 +29,5 @@ function FormatTime(code) {
 $(document).ready(function() {
 	setInterval(function() {
 		UpdateMessages();
-	}, 500);
+	}, 5000);
 });
