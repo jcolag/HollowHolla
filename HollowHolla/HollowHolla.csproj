@@ -137,4 +137,8 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <None Include="Content\chime.mp3" />
+    <None Include="Content\chime.ogg" />
+  </ItemGroup>
 </Project>

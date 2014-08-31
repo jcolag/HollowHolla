@@ -14,6 +14,17 @@
 		post += "<i>" + items[1].replace(/\*/g, '') + "</i><br>";
 		post += items[2] + "</li>";
 		$('#stream').append(post);
+		var sound;
+		var extension;
+		if ((new Audio()).canPlayType("audio/ogg; codecs=vorbis")) {
+		    extension = "ogg";
+		} else if ((new Audio()).canPlayType("audio/mp3; codecs=vorbis")) {
+		    extension = "mp3";
+		}
+		if (extension) {
+			sound = new Audio("/Content/chime." + extension);
+			sound.play();
+		}
 	});
 	$('html, body').scrollTop($(document).height());
 }

@@ -40,6 +40,8 @@ The interface is built on [Twitter Bootstrap](http://getbootstrap.com/) v2.3.2 a
 
 The default text fonts are all courtesy of Google Fonts, [Open Sans](https://www.google.com/fonts/specimen/Open+Sans), [Open Sans Condensed](https://www.google.com/fonts/specimen/Open+Sans+Condensed), and [Cherry Cream Soda](https://www.google.com/fonts/specimen/Cherry+Cream+Soda).  The last seems like it would work as a great logo...just not for the actual title, here, where it just looks blocky, so maybe not for long.
 
+The chime sound is the _button hover_ sound from [Nicky Case](http://ncase.me/)'s [Nothing to Hide](https://github.com/ncase/nothing-to-hide).
+
 Errata
 ------
 
